@@ -138,10 +138,6 @@ void render(sf::RenderWindow& window) {
         circle.setPosition({easeInOutCubic(frame / 30, WINDOW_WIDTH), 267});
     } 
 
-
-    if (++frame > 30) {
-        frame = 0;
-    }
     window.draw(circle);
 
     // ====== ====== ======
@@ -149,12 +145,12 @@ void render(sf::RenderWindow& window) {
     // on the current portion of the curve
     // ====== ====== ======
 
-    sf::RectangleShape line_up({300.0f, 5.0f});
+    sf::RectangleShape line_up({300.0f, 2.0f});
     line_up.setPosition({0, 700});
     line_up.rotate(sf::degrees(270));
     window.draw(line_up);
 
-    sf::RectangleShape line_across({800.0f, 5.0f});
+    sf::RectangleShape line_across({800.0f, 2.0f});
     line_across.setPosition({0, 700});
     window.draw(line_across);
 
@@ -257,6 +253,9 @@ void render(sf::RenderWindow& window) {
 
     window.draw(point);
 
+    if (++frame > 30) {
+        frame = 0;
+    }
     window.display();
 }
 
